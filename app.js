@@ -14,10 +14,44 @@ var server = app.listen(port, function () {
 
     console.log('Example app listening at http://%s:%s', host, port);
 });
+app.use(cors);
+
+var userOptions = {};
+var SteamUser = require('steam-user');
+var user = new SteamUser(null, userOptions);
+user.logOn(); // Log onto Steam anonymously
+
 
 app.get('/', function(req, res) {
-    res.send('Hello World!');
+    res.send(user.steamID + ': HELLO!');
 });
+
+
+function cors(req, res, next) {
+    res.set('Access-Control-Allow-Origin', '*');
+    next();
+}
+
+function checkLogOn(req, res, next) {
+    if(req.url != '/' && !user.steamID) {
+        sendJsonResponse(req, res, "Not logged onto Steam", 503);
+    } else {
+        next();
+    }
+}
+
+function sendJsonResponse(req, res, response, statusCode) {
+    if(typeof response === 'string') {
+        response = {"success": 0, "error": response};
+    }
+
+    if(typeof statusCode === 'number') {
+        res.status(statusCode);
+    }
+
+    res.set('Content-Type', 'application/json');
+    res.send(JSON.stringify(response, null, (req.query && req.query.prettyprint && req.query.prettyprint != 0) ? "\t" : null));
+}
 
 /*const PORT = 8085;
 const IP = '127.0.0.1';
