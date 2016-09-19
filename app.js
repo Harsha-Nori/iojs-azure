@@ -4,16 +4,13 @@ http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end(`Hello World from iojs ${process.version}!\n`);
 }).listen(process.env.port);*/
-const PORT = process.env.OPENSHIFT_IOJS_PORT || 8085;
-const IP = process.env.OPENSHIFT_IOJS_IP || '127.0.0.1';
+const PORT = 8085;
+const IP = '127.0.0.1';
 
 var SteamUser = require('steam-user');
 var Express = require('express');
 
 var userOptions = {};
-if(process.env.OPENSHIFT_DATA_DIR) {
-	userOptions.dataDirectory = process.env.OPENSHIFT_DATA_DIR;
-}
 
 var user = new SteamUser(null, userOptions);
 user.logOn(); // Log onto Steam anonymously
