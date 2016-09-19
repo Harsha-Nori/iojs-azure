@@ -4,7 +4,7 @@ http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end(`Hello World from iojs ${process.version}!\n`);
 }).listen(process.env.port);*/
-const PORT = process.env.OPENSHIFT_IOJS_PORT || 8080;
+const PORT = process.env.OPENSHIFT_IOJS_PORT || 8085;
 const IP = process.env.OPENSHIFT_IOJS_IP || '127.0.0.1';
 
 var SteamUser = require('steam-user');
