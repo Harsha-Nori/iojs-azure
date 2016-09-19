@@ -10,7 +10,7 @@ The app logs into Steam as an anonymous user (using the [node-steam-user](https:
 
 # Public Installation
 
-I have an installation available on Azure at http://steamapi.azurewebsites.net
+I have an installation available on Azure at http://steamapi.azurewebsites.net running on node express.js server.
 
 # API Usage
 
