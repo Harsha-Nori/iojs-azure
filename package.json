@@ -9,5 +9,8 @@
 		"steam-user": "^1.5.2",
 		"express": "^4.13.3"
 	},
+	"scripts": {
+	    "start": "forever app.js"
+	},
 	"private": true
 }
