@@ -4,13 +4,19 @@ http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end(`Hello World from iojs ${process.version}!\n`);
 }).listen(process.env.port);*/
-const PORT = 80;
-const IP = '127.0.0.1';
+var port = process.env.port || 1337
 var express = require('express');
 var app = express();
-var http = require('http').Server(app);
+
+var server = app.listen(port, function () {
+    var host = server.address().address;
+    var port = server.address().port;
+
+    console.log('Example app listening at http://%s:%s', host, port);
+});
+
 app.get('/', function(req, res) {
-	res.redirect("https://google.com");
+    res.send('Hello World!');
 });
 
 /*const PORT = 8085;
