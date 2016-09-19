@@ -4,7 +4,7 @@ http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end(`Hello World from iojs ${process.version}!\n`);
 }).listen(process.env.port);*/
-const PORT = 8085;
+const PORT = 80;
 const IP = '127.0.0.1';
 var Express = require('express');
 var app = new Express();
