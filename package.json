@@ -8,5 +8,6 @@
 	"dependencies": {
 		"steam-user": "^1.5.2",
 		"express": "^4.13.3"
-	}
+	},
+	"private": true
 }
