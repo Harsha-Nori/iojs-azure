@@ -8,7 +8,7 @@ const PORT = 80;
 const IP = '127.0.0.1';
 var Express = require('express');
 var app = new Express();
-app.listen(PORT, IP);
+app.listen(80);
 app.get('/', function(req, res) {
 	res.redirect("https://google.com");
 });
