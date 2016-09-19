@@ -1,10 +1,10 @@
-/*const http = require('http');
+const http = require('http');
 
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end(`Hello World from iojs ${process.version}!\n`);
-}).listen(process.env.port);*/
-const PORT = 8085;
+}).listen(process.env.port);
+/*const PORT = 8085;
 const IP = '127.0.0.1';
 
 var SteamUser = require('steam-user');
@@ -146,4 +146,4 @@ function sendJsonResponse(req, res, response, statusCode) {
 	
 	res.set('Content-Type', 'application/json');
 	res.send(JSON.stringify(response, null, (req.query && req.query.prettyprint && req.query.prettyprint != 0) ? "\t" : null));
-}
+}*/
